@@ -38,7 +38,29 @@ function printNameBacktracking(i) {
 //print n to 1 backtracking
 function printReverseBacktracking(i, n) {
   if (i > n) return;
-  printReverseBacktracking(i+1, n);
+  printReverseBacktracking(i + 1, n);
   console.log(i);
 }
-printReverseBacktracking(1, 4);
+// printReverseBacktracking(1, 4);
+
+//sum upto n numbers
+
+function SumUptoN(number) {
+  if (number === 0) {
+    return 0;
+  }
+  return number + SumUptoN(number - 1);
+}
+// const data = SumUptoN(3);
+// console.log(data);
+
+//factorail
+
+function factorial(number) {
+  if (number === 1) {
+    return number;
+  }
+  return number * factorial(number - 1);
+}
+const facto = factorial(4);
+console.log(facto);
