@@ -1,21 +1,24 @@
 // GFG Subset question
-// https://practice.geeksforgeeks.org/problems/subset-sums2234/1 
+// https://practice.geeksforgeeks.org/problems/subset-sums2234/1
 
-let arr = [3, 1, 2];
-subsetSums(arr, 3);
+let arr = [1, 2, 3];
 
-function subsetSums(arr, n) {
-  let temp = [];
+function subsetSums(arr) {
+  let ans = [];
+  let tempArray = [];
   let sum = 0;
   helper(0, sum);
-  console.log(temp);
+  console.log(ans);
 
-  function helper(index, sum) {
-    if (index === n) {
-      temp.push(sum);
+  function helper(index) {
+    if (index === arr.length) {
+      ans.push(tempArray.slice());
       return;
     }
-    helper(index + 1, arr[index] + sum);
-    helper(index + 1, sum);
+    tempArray.push(arr[index]);
+    helper(index + 1);
+    tempArray.pop();
+    helper(index + 1);
   }
 }
+subsetSums(arr);
