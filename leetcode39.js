@@ -2,12 +2,15 @@
 function combinationSum(candidates, target) {
   let result = [];
   let temp = [];
+
   recursionCombination(0, candidates, target);
   return result;
 
   function recursionCombination(index, data, target) {
     if (target === 0) {
-      return result.push(temp.slice());
+      //   console.log('11', temp);
+      console.log('12', result);
+      return result.push(temp);
     }
     if (index === data.length) {
       return;
