@@ -2,27 +2,18 @@
 
 var permute = function (nums) {
   let ans = [];
-  let temp = [];
-  let checkArray = new Array(nums.length).fill(false);
-  helperFunction();
+  helperFunction(0);
   return ans;
-  function helperFunction() {
-    if (temp.length === nums.length) {
-      ans.push(temp.slice());
+  function helperFunction(index) {
+    if (index === nums.length) {
+      ans.push(nums.slice());
       return;
     }
-    for (let i = 0; i < nums.length; i++) {
-      console.log(i, '->', temp);
-
-      if (!checkArray[i]) {
-        temp.push(nums[i]);
-        checkArray[i] = true;
-        helperFunction();
-        temp.pop();
-        checkArray[i] = false;
-      }
+    for (let i = index; i < nums.length; i++) {
+      [nums[i], nums[index]] = [nums[index], nums[i]];
+      helperFunction(index + 1);
+      [nums[index], nums[i]] = [nums[i], nums[index]];
     }
   }
 };
-// console.log(permute([1, 2, 3])
-permute([1, 2, 3]);
+console.log(permute([1, 2, 3]));
