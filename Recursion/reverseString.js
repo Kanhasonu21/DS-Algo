@@ -1,9 +1,11 @@
-function reverseFunction(l, r) {
-  if (l > Math.floor(r / 2)) return true;
-  if (string[l] !== string[r]) {
+var isPowerOfTwo = function (n) {
+  if (n <= 0) return false;
+  if (n === 1) return true;
+
+  if (n % 2 != 0) {
     return false;
+  } else {
+    return isPowerOfTwo(Math.floor(n / 2));
   }
-  return reverseFunction(l + 1, r - 1);
-}
-let string = 'MADAM';
-console.log(reverseFunction(0, string.length - 1));
+};
+console.log(isPowerOfTwo(4));
